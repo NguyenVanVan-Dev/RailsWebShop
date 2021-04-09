@@ -1,0 +1,57 @@
+<% content_for :content do %>
+    <div class="page__register">
+                <div class="grid wide">
+                    <div class="register__banner">
+                        <h2 class="register__header">  
+                            <%= link_to "Trang Chủ",root_path,class:" " %>   
+                            <span> <i class="fas fa-chevron-right"></i> Đăng Kí Thành Viên</span>
+                        </h2>
+                    </div>
+                    <div class="register__body">
+                        <div class="row">
+                            <div class="col col-lg-7">
+                                <div class="header__location">
+                                    <h2 class="header__name"> ﻿CÔNG TY TNHH TM DV ĐẦU TƯ VẠN PHÚ</h2>
+                                </div>
+                                <div class="map__here">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3835.7813857535507!2d108.22975491468281!3d15.972788918186536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421b33660cb7ed%3A0x9ce908e3f01d8ce6!2zTmjDoCBWxINuIGjDs2EgS2jDoWkgVMOieQ!5e0!3m2!1svi!2s!4v1617419856000!5m2!1svi!2s" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                            <div class="col col-lg-5">
+                               <div class="register__title"> <i class="fas fa-user-plus"></i> Đăng Ký</div>
+                               <div class="register__form-group">
+                                   
+                                   <%= form_with model:@user ,url: createuser_path,class:"", method: :post  do |form| %>
+                                         <% if flash[:success] %>
+                                            <div class="alert alert-primary" role="alert">
+                                                    <%= flash[:success] %>
+                                            </div>
+                                        
+
+                                        <% end %>
+                                        <% if flash[:danger] %>
+                                            <div class="alert alert-danger" role="alert">
+                                                    <%= flash[:danger] %>
+                                            </div>
+                                        
+
+                                        <% end %>
+                                        <%= form.label :name, "Họ và Tên:",class:"register__form-label" %>
+                                        <%= form.text_field :name ,class:"register__input",placeholder:"Họ Và tên..." %>
+                                        <%= form.label :email, "E-mail:",class:"register__form-label" %>
+                                        <%= form.email_field :email ,class:"register__input",placeholder:"Email..." %>
+                                        <%= form.label :password, "Mật Khẩu:",class:"register__form-label" %>
+                                        <%= form.password_field  :password ,class:"register__input",placeholder:"Mật khẩu..." %>
+                                        <%= form.label :repeatpass , "Nhập Lại Mật Khẩu:",class:"register__form-label" %>
+                                        <%= form.password_field  :repeatpass ,class:"register__input",placeholder:"Nhập lại mật khẩu..." %>
+                                        <%= form.submit "Đăng Ký" ,class:"btn btn-register"%> 
+
+                                   <% end %>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<% end %>
+ 

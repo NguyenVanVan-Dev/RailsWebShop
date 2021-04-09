@@ -1,0 +1,113 @@
+ <!-- Header -->
+        <div id="header">
+            <div class="header__nav-top">
+                <div class="grid wide">
+                    <nav class="header__nav">
+                        <ul class="header__list ">
+                            <li class="header__list-item">  
+                                <%= link_to "Trang Chủ", root_path,class:"header__item-link " %>
+                            </li>
+                            <li class="header__list-item">
+                                <a href="" class="header__item-link">Giới Thiệu</a>
+                            </li>
+                            <li class="header__list-item hidden-on-tablet">
+                                <a href="" class="header__item-link">Tin Tức</a>
+                            </li>
+                            <li class="header__list-item hidden-on-tablet">
+                                <a href="" class="header__item-link">Liên Hệ</a>
+                            </li>
+                        </ul>
+                        <ul class="header__list hidden-on-mobile">
+                            <li class="header__list-item hidden-on-tablet">
+                                <a href="" class="header__item-link">Giỏ Hàng</a>
+                            </li>
+                            <li class="header__list-item hidden-on-tablet">
+                                <a href="" class="header__item-link">Thanh Toán</a>
+                            </li>
+                            <li class="header__list-item">
+                                <%= link_to "Đăng Kí", new_register_user_path,class:"header__item-link " %>
+                            </li>
+                            <li class="header__list-item">
+                                <a href="" class="header__item-link">Đăng Nhập</a>
+                            </li>
+                        </ul>
+                    </nav>
+                   
+                </div>
+            </div>
+            <div class="grid wide">
+                <div class=" row header__license">
+                    <div class="col-lg-4 col-md-6 col-sm-3">
+                        <div class="header__logo">
+                            <a href="" class="header__link-logo">
+                                <%= image_tag("logo.png") %>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-0 col-sm-0">
+                        <div class="header__contact-phone">
+                            <a href="" class="contact-link">
+                                <i class="fas fa-phone-alt"></i>
+                                <span class="contact-phone">Hotline: 0366361624</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-9">
+                        <div class="header__form-group">
+                            <form action="" class="header__form">
+                                <div class="header__input">
+                                    <div class="header__input-text">
+                                        <i class="fas fa-search"></i>
+                                        <input type="text" placeholder="Từ Khóa..." >
+                                    </div>
+                                    <input type="submit" value="Tìm Kiếm">
+                                </div>
+    
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__menu ">
+                    <ul class="header__list-bottom ">
+                        <li class="header__item-bottom hidden-on-mobile ">
+                            <a href="" class="header__item-link ">Sản Phẩm Bán Chạy</a>
+                        </li>
+                        <li class="header__item-bottom hidden-on-mobile ">
+                            <a href="" class="header__item-link  ">Hộp Quà Tết</a>
+                        </li>
+                        <li class="header__item-bottom hidden-on-mobile hidden-on-mobile-and-table">
+                            <a href="" class="header__item-link">Giỏ Tết</a>
+                        </li>
+                        <li class="header__item-bottom  hidden-on-mobile hidden-on-mobile-and-table">
+                            <a href="" class="header__item-link">Giỏ Trái Cây</a>
+                        </li>
+                        <li class="header__item-bottom hidden-on-mobile  hidden-on-mobile-and-table">
+                            <a href="" class="header__item-link">Sản Phẩm Khác</a>
+                        </li>
+                        <li class="header__item-bottom dropdown-list hidden-on-pc">
+                            <a href="" class="header__item-link hidden-on-mobile hidden-on-pc">  <i class="fas fa-bars"></i> Khác</a>
+                            <a href="" class="header__item-link hidden-on-pc hidden-on-tablet">  <i class="fas fa-bars"></i> All Menu </a>
+                            <ul class=" dropdown-mobi-tablet">
+                                <li class="header__dropdown-item">
+                                    <a href="" class="header__drowdown-link hidden-on-tablet">Sản Phẩm Bán Chạy</a>
+                                </li>
+                                <li class="header__dropdown-item">
+                                    <a href="" class="header__drowdown-link hidden-on-tablet">Hộp Quà Tết</a>
+                                </li>
+                                <li class="header__dropdown-item">
+                                    <a href="" class="header__drowdown-link">Giỏ Tết</a>
+                                </li>
+                                <li class="header__dropdown-item">
+                                    <a href="" class="header__drowdown-link">Giỏ Trái Cây</a>
+                                </li>
+                                
+                        
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- End Header -->
