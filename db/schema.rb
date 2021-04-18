@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_022855) do
+ActiveRecord::Schema.define(version: 2021_04_18_113722) do
 
   create_table "admins", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", charset: "utf8mb4", force: :cascade do |t|
+    t.string "category_slug"
+    t.integer "category_parent"
+    t.string "category_name"
+    t.string "category_status"
+    t.string "category_desc"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

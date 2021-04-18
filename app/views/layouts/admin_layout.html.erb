@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Admin Shop Bánh Kẹo | TF</title>
 
     <!-- Custom fonts for this template-->
     
@@ -41,7 +41,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Vấn Admin <sup>hihi</sup></div>
             </a>
 
             <!-- Divider -->
@@ -51,7 +51,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Bảng Điều Khiển</span></a>
             </li>
 
             <!-- Divider -->
@@ -59,7 +59,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+               Interface
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -74,6 +74,10 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="buttons.html">Buttons</a>
                         <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="cards.html">Header</a>
+                        <a class="collapse-item" href="cards.html">Slider</a>
+                        <a class="collapse-item" href="cards.html">Content</a>
+                        <a class="collapse-item" href="cards.html">Footer</a>
                     </div>
                 </div>
             </li>
@@ -125,13 +129,54 @@
                     </div>
                 </div>
             </li>
-
-            <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Category"
+                    aria-expanded="true" aria-controls="Category">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Category</span>
+                </a>
+                <div id="Category" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        
+                        <h6 class="collapse-header">Manage Category:</h6>
+                            <a class="collapse-item" href="login.html">List Category</a>
+                            <%= link_to "Add Category", newcategory_path,class:"collapse-item " %>
+                    </div>
+                </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Products"
+                    aria-expanded="true" aria-controls="Products">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Products</span>
+                </a>
+                <div id="Products" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        
+                        <h6 class="collapse-header">Manage Product:</h6>
+                          <a class="collapse-item" href="login.html">List Product</a>
+                        <a class="collapse-item" href="register.html">Add Product</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Order"
+                    aria-expanded="true" aria-controls="Order">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Order</span>
+                </a>
+                <div id="Order" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        
+                        <h6 class="collapse-header">Manage Order:</h6>
+                          <a class="collapse-item" href="login.html"> List Order </a>
+                        <a class="collapse-item" href="register.html"> Daily Orders    </a>
+                    </div>
+                </div>
+            </li>
+
+
+            
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
@@ -279,29 +324,7 @@
                                 <h6 class="dropdown-header">
                                     Message Center
                                 </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        
-                                            <%= image_tag "undraw_profile_1.svg", :class => "rounded-circle" %>
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                       <%= image_tag "undraw_profile_2.svg", :class => "rounded-circle" %>
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
+                               
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <%= image_tag "undraw_profile_3.svg", :class => "rounded-circle" %>
@@ -313,18 +336,7 @@
                                         <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
+                               
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
                         </li>

@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
+  #  Category 
+  get 'newcategory',to:'category#newcategory'
+  post 'newcategory',to:'category#addcategory'
+
   # Admin
   get 'admin',to:'admin#new'
   post 'login/admin',to:'admin#create' 
   get 'show/dashboard',to:'admin#show'
   delete  "logout"  ,to: "admin#destroy"
-  
-
-
   # Dng ki User 
 
   resources :register_user
-
   post 'createuser',to:'register_user#create'
 
   # Home

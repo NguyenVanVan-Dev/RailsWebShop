@@ -1,0 +1,54 @@
+<% content_for :content do %>
+  <header class="panel-heading">
+    <center> <h1>Add Category </h1></center> 
+       <% if flash[:success] %>
+          <div class="alert alert-success" role="alert">
+                  <%= flash[:success] %>
+          </div>
+      <% end %>
+      <% if flash[:danger] %>
+          <div class="alert alert-danger" role="alert">
+                  <%= flash[:danger] %>
+          </div>
+      <% end %>
+  </header>
+             
+  <%= form_with model:@category, html: {class: "user"} , method: :post do |f| %>                   
+    <div class="form-row">
+        <div class="form-group col-md-12">
+         <%= f.label :category_name, "Name Category:" %> 
+         <%= f.text_field :category_name ,class:"form-control form-control-user",placeholder:"Name Category" %>
+         
+        </div>
+        <div class="form-group col-md-12">
+      
+          <%= f.label :category_slug, "Status Category:" %> 
+          <%= f.text_field :category_slug ,class:"form-control form-control-user",placeholder:"Status Category" %>
+        </div>
+        <div class="form-group col-md-6">
+            
+            <%= f.label :category_parent, "Category Parent:" %>
+            <%= select_tag(:category_parent, options_for_select([["Bánh Cosy",1],["Bánh Herio ",2]] ), class:"custom-select") %>
+           
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.label :category_status, "Hidden/ Show:" %>
+          <%= select_tag(:category_status, options_for_select([["Hidden",1],["Show ",2]] ), class:"custom-select") %>
+           
+           
+        </div>
+        <div class="form-group col-md-12">
+          <%= f.label :category_desc, "Description:" %>
+         
+          <%= f.text_area :category_desc, size: "70x10" ,class:"form-control" %>
+          
+        </div>
+        <hr>
+        <div class="form-group col-md-2">
+            <input type="submit" class="btn btn-primary  btn-block" id="" value="Add category">
+        </div>
+        
+        
+    </div>
+ <% end %>
+<% end %>
