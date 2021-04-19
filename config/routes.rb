@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   #  Category 
+  resources :category
   get 'newcategory',to:'category#newcategory'
   post 'newcategory',to:'category#addcategory'
+  get 'showcategory',to:'category#showcategory'
+  
 
   # Admin
   get 'admin',to:'admin#new'
@@ -14,8 +17,8 @@ Rails.application.routes.draw do
   post 'createuser',to:'register_user#create'
 
   # Home
-  get 'home' ,to:"home#index"
-  root "home#index"
+  get 'home' ,to:"category#index"
+  root "category#index"
  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

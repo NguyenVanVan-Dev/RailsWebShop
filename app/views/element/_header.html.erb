@@ -68,41 +68,27 @@
                     </div>
                 </div>
                 <div class="header__menu ">
+                    <ul class="header__list-bottom  ">
+                        <% @category.each do |category| %>
+                            <li class="header__item-bottom hidden-on-mobile hidden-on-tablet " >
+                                 <%= link_to category.category_name, category ,class:"header__item-link " %>
+                            </li>
+                        <% end %>
+                    </ul>
                     <ul class="header__list-bottom ">
-                        <li class="header__item-bottom hidden-on-mobile ">
-                            <a href="" class="header__item-link ">Sản Phẩm Bán Chạy</a>
-                        </li>
-                        <li class="header__item-bottom hidden-on-mobile ">
-                            <a href="" class="header__item-link  ">Hộp Quà Tết</a>
-                        </li>
-                        <li class="header__item-bottom hidden-on-mobile hidden-on-mobile-and-table">
-                            <a href="" class="header__item-link">Giỏ Tết</a>
-                        </li>
-                        <li class="header__item-bottom  hidden-on-mobile hidden-on-mobile-and-table">
-                            <a href="" class="header__item-link">Giỏ Trái Cây</a>
-                        </li>
-                        <li class="header__item-bottom hidden-on-mobile  hidden-on-mobile-and-table">
-                            <a href="" class="header__item-link">Sản Phẩm Khác</a>
-                        </li>
                         <li class="header__item-bottom dropdown-list hidden-on-pc">
-                            <a href="" class="header__item-link hidden-on-mobile hidden-on-pc">  <i class="fas fa-bars"></i> Khác</a>
-                            <a href="" class="header__item-link hidden-on-pc hidden-on-tablet">  <i class="fas fa-bars"></i> All Menu </a>
+                            
+                            <%= link_to "All Menu", root_path ,class:"header__item-link hidden-on-pc "%>
                             <ul class=" dropdown-mobi-tablet">
-                                <li class="header__dropdown-item">
-                                    <a href="" class="header__drowdown-link hidden-on-tablet">Sản Phẩm Bán Chạy</a>
-                                </li>
-                                <li class="header__dropdown-item">
-                                    <a href="" class="header__drowdown-link hidden-on-tablet">Hộp Quà Tết</a>
-                                </li>
-                                <li class="header__dropdown-item">
-                                    <a href="" class="header__drowdown-link">Giỏ Tết</a>
-                                </li>
-                                <li class="header__dropdown-item">
-                                    <a href="" class="header__drowdown-link">Giỏ Trái Cây</a>
-                                </li>
                                 
-                        
+                                <% @category.each do |category| %>
+                                    <li class="header__dropdown-item" >
+                                        <%= link_to category.category_name, "/ruby-book" ,class:"header__drowdown-link  " %>
+                                    </li>
+                                <% end %>
+
                             </ul>
+                            
                         </li>
                         
                     </ul>

@@ -12,6 +12,8 @@ class AdminController < ApplicationController
     admin = Admin.find_by email: params[:admin][:email].downcase
     if admin && admin.authenticate(params[:admin][:password])
       flash[:success] = "Login success"
+      admin1 = Admin.find_by params[:admin][:name]
+      session[:admin_name] = admin1.name
       log_in admin
       redirect_to show_dashboard_path
      

@@ -55,7 +55,7 @@
     .banner__link {
         font-size: 1.8rem;
     }
-
+}
 /* mobile and tablet */
 @media (max-width: 1024px){
     .hidden-on-mobile-and-table{
