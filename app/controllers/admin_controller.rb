@@ -8,7 +8,7 @@ class AdminController < ApplicationController
     render :show_dashboard ,layout:"admin_layout"
   end
 
-  def create
+  def login
     admin = Admin.find_by email: params[:admin][:email].downcase
     if admin && admin.authenticate(params[:admin][:password])
       flash[:success] = "Login success"
@@ -24,5 +24,8 @@ class AdminController < ApplicationController
   end
 
   def destroy
+    log_out admin
+    flash[:success] = "You are logged out"
+    redirect_to login_admin_path
   end
 end

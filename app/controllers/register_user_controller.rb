@@ -3,6 +3,7 @@ class RegisterUserController < ApplicationController
 
   end
   def new
+    @home = Categoryproduct.all
     @user = Registeruser.new
   end
   def create
@@ -10,12 +11,19 @@ class RegisterUserController < ApplicationController
 
     if @user.save
       flash[:success] = "Register success"
-      redirect_to  new_register_user_path
+      session[:user_name] = @user.name
+      redirect_to  root_path
     else
       flash[:danger] = "Register failed"
       render :new
     end
   end
+  def destroy 
+    session.delete :user_name
+    flash[:success] = "You are logged out"
+    redirect_to new_register_user_path
+  end
+  
   private
   def registeruser_params
     params.require(:registeruser).permit(:name, :password, :password_confirmation)

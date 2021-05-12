@@ -4,16 +4,15 @@
             <div class="grid">
                 <div class="slider ">
                     <div class="owl-carousel owl-theme">
-                        <div class="item">
-                            <%= image_tag("bannerso1.jpg") %>
-                        </div>
-                        <div class="item">
-                            <%= image_tag("banner2.jpg") %>
-                        </div>
-                        <div class="item">
-                            <%= image_tag("banner3.jpg") %>
-                        </div>
                        
+                       
+                       <% @slide .each do |product| %>
+                        <div class="item">
+                             <%= image_tag product.image ,style: "width:100%;" %>
+                        </div>
+                        
+                            
+                    <% end %>
                     </div>
                 </div>
             </div>

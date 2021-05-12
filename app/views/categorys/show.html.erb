@@ -1,0 +1,51 @@
+<% content_for :content do %>
+  <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Details Category "<%= @category.name %>"  </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th> Name</th>
+                                            <th> Slug</th>
+                                            <th> Parent</th>
+                                            <th> Status</th>
+                                            <th> Description</th>
+                                            <th>Time Add category</th>
+                                             <th>Time update category</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    
+                                        
+                                         <tr class="text-center">
+                                            <td><%= @category.name %></td>
+                                            <td><%= @category.slug %></td>
+                                            <td><%= @category.parent %></td>
+                                            <td><%= @category.status %></td>
+                                            <td><%= @category.desc %></td>  
+                                            <td><%= @category.created_at %></td> 
+                                            <td><%= @category.updated_at %></td>   
+                                            
+                                        </tr>
+                                        
+                                       
+                                       
+                                    </tbody>
+                                </table>
+                                 <div class="form-group col-md-4">
+                                    <%= link_to "Edit Category", edit_category_path(@category) ,class: "btn btn-warning  btn-block"%>
+                                    <%= link_to "Delete", category_path(@category) , method: :post , class: 'btn btn-danger btn-block' %>
+                                
+                                </div>
+                            
+                            
+                                                                      
+                            </div>
+                        </div>
+                    </div>
+
+<%end %>

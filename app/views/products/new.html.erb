@@ -1,0 +1,83 @@
+
+<% content_for :content do %>
+  <header class="panel-heading">
+    <center> <h1>Add Product </h1></center> 
+       <% if flash[:success] %>
+          <div class="alert alert-success" role="alert">
+                  <%= flash[:success] %>
+          </div>
+      <% end %>
+      <% if flash[:danger] %>
+          <div class="alert alert-danger" role="alert">
+                  <%= flash[:danger] %>
+          </div>
+      <% end %>
+  </header>
+             
+  <%= form_with model: @product , html: {class: "user"} , method: :post do |f| %>                   
+    <div class="form-row">
+        <div class="form-group col-md-12">
+         <%= f.label :name, "Name Product:" %> 
+         <%= f.text_field :name ,class:"form-control form-control-user",placeholder:"Name Product" %>
+         <% @product.errors.full_messages_for(:name).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+        </div>
+        <div class="form-group col-md-12">
+          <%= f.label :slug, "Status Product:" %> 
+          <%= f.text_field :slug ,class:"form-control form-control-user",placeholder:"Status Product" %>
+          <% @product.errors.full_messages_for(:slug).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+        </div>
+        <div class="form-group col-md-6">
+            <%= f.label :quantity, "Product Quantity:" %>
+           
+            <%= f.number_field :quantity, in: 1.0..1000.0, step: 1.0 , class: "custom-select"%>
+            <% @product.errors.full_messages_for(:quantity).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+         <div class="form-group col-md-6">
+            <%= f.label :display, "Product Category:" %>
+            <%=f.collection_select :display, Categoryproduct.order(:name), :id, :name, {}, {class: "custom-select"} %> 
+            <% @product.errors.full_messages_for(:display).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+
+        <div class="form-group col-md-6">
+            <%= f.label :price, "Product Price:" %>
+            <%= f.text_field :price ,class:"form-control",placeholder:" Price Product" %>
+          
+        </div>
+       
+        <div class="form-group col-md-6">
+          <%= f.label :status, "Hidden/ Show:" %>
+          <%= f.select(:status, [["hidden",1],["show",2] ], {}, { :class => 'custom-select' }) %>
+          <% @product.errors.full_messages_for(:status).each do |message| %>
+            <div><%= message %></div>
+            <% end %>
+        </div>
+        <div class="form-group col-md-6">
+            <%= f.label :image, "Product Price:" %>
+            <%= f.file_field  :image,class:"form-control" %>
+          
+        </div>
+        <div class="form-group col-md-12">
+          <%= f.label :content, "Content Product:" %>
+         
+          <%= f.text_area :content, size: "70x10" ,class:"form-control" %>
+          <% @product.errors.full_messages_for(:content).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+        </div>
+        <hr>
+        <div class="form-group col-md-2">
+            <input type="submit" class="btn btn-success  btn-block" id="" value="Add Product">
+        </div>
+        
+        
+    </div>
+ <% end %>
+<% end %>

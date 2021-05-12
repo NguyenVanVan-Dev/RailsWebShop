@@ -1,0 +1,99 @@
+<% content_for :content do %>
+ 
+        <div id="content">
+            <% if flash[:success] %>
+                <div class="alert alert-success text-center" role="alert">
+                        <%= flash[:success] %>
+                </div>
+            <% end %>
+            <% if flash[:danger] %>
+                <div class="alert alert-danger text-center" role="alert">
+                        <%= flash[:danger] %>
+                </div>
+            <% end %>
+            <div class="grid wide">
+                <div class="row content__banner">
+                    <div class=" col-lg-3 col-md-3 col-sm-12 content__baner-img">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <a href="" class="banner__link">
+                                     <%= image_tag("Untitled-1.png" , :class => "banner__img")  %>
+                                    <p class="banner__text"> Hộp Quà Tết</p>
+                                </a>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <a href="" class="banner__link">
+                                     <%= image_tag("Untitled-2.png" , :class => "banner__img")  %>
+                                        <p class="banner__text"> Giỏ Tết</p>
+                                   
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-3 col-md-3 col-sm-12 content__baner-img">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <a href="" class="banner__link">
+                                    <%= image_tag("Untitled-3.png" , :class => "banner__img")  %>
+                                    <p class="banner__text"> Giỏ Trái Cây</p>
+                                </a>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <a href="" class="banner__link">
+                                     <%= image_tag("Untitled-4.png" , :class => "banner__img")  %>
+                                    <p class="banner__text"> Sản Phẩm Khác</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-6 col-md-6 col-sm-12 content__baner-img-lg">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                            <a href="" class="banner__link">
+                             <%= image_tag("banner.png" , :class => "banner__img")  %>
+                                <p class="banner__text"> Sản Phẩm Bán Chạy</p>
+                            </div></a>   
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid wide">
+                <div class="content__category">
+                    <p class="content__label">
+                       <%= @category.name%> 
+                    </p>
+                </div>
+            </div>
+            <div class="grid wide">
+                <div class="row">
+                    
+                    <% @product .each do |product| %>
+                              
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card">
+                                <a href="" class="card-link">
+                                    <div class="card-content" > 
+                                    <%= image_tag product.image ,style: "width:100%;" %>
+                                        <div class="card-body">
+                                            <h3 class="card-name">
+                                               <%=  product.name%>
+                                            </h3>
+                                            <p class="card-price">
+                                               <%=  product.price %>  $<span><%=  product.price + 3 %> $</span>
+                                            </p>
+                                            <a href="" class="card__btn">
+                                                Thêm vào giỏ
+                                            </a>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                    <% end %>
+                </div>
+            </div> 
+        </div> 
+
+<% end %>

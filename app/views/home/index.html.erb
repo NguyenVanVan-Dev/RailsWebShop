@@ -1,6 +1,16 @@
 <% content_for :content do %>
    <!-- Content -->
         <div id="content">
+            <% if flash[:success] %>
+                <div class="alert alert-success text-center" role="alert">
+                        <%= flash[:success] %>
+                </div>
+            <% end %>
+            <% if flash[:danger] %>
+                <div class="alert alert-danger text-center" role="alert">
+                        <%= flash[:danger] %>
+                </div>
+            <% end %>
             <div class="grid wide">
                 <div class="row content__banner">
                     <div class=" col-lg-3 col-md-3 col-sm-12 content__baner-img">
@@ -57,82 +67,50 @@
             </div>
             <div class="grid wide">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card">
-                            <a href="" class="card-link">
-                                <div class="card-content" style="background-image: url(<%= asset_path 'hq3.jpg' %>) ;"> 
-                                    <div class="card-body">
-                                        <h3 class="card-name">
-                                            Hộp Quà Tết 2021 (Mẫu 1)
-                                        </h3>
-                                        <p class="card-price">
-                                            65,000$ <span> 68,000$</span>
-                                        </p>
-                                        <a href="" class="card__btn">
-                                            Thêm vào giỏ
-                                        </a>
+                    
+                    <% @slide .each do |product| %>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card">
+                                <a href="" class="card-link">
+                                    <div class="card-content" > 
+                                    <%= image_tag product.image ,style: "width:100%;" %>
+                                        <div class="card-body">
+                                            <h3 class="card-name">
+                                               <%=  product.name%>
+                                            </h3>
+                                           
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card">
-                            <a href="" class="card-link">
-                                <div class="card-content" style="background-image: url(<%= asset_path 'hq1.jpg' %>) ;"> 
-                                    <div class="card-body">
-                                        <h3 class="card-name">
-                                            Hộp Quà Tết 2021 (Mẫu 1)
-                                        </h3>
-                                        <p class="card-price">
-                                            65,000$ <span> 68,000$</span>
-                                        </p>
-                                        <a href="" class="card__btn">
-                                            Thêm vào giỏ
-                                        </a>
+                                </a>
+                            </div>
+                        </div>            
+                    <% end %>
+                </div>
+            </div>
+            <div class="grid wide">
+                <div class="row">
+                    
+                    <% @hopqua .each do |product| %>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card">
+                                <a href="" class="card-link">
+                                    <div class="card-content" > 
+                                    <%= image_tag product.image ,style: "width:100%;" %>
+                                        <div class="card-body">
+                                            <h3 class="card-name">
+                                               <%=  product.name%>
+                                            </h3>
+                                            <p class="card-price">
+                                               <%=  product.price %>  $<span><%=  product.price + 3 %> $</span>
+                                            </p>
+                                            <a href="" class="card__btn">
+                                                Thêm vào giỏ
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card">
-                            <a href="" class="card-link">
-                                <div class="card-content" style="background-image: url(<%= asset_path 'hq2.jpg' %>) ;"> 
-                                    <div class="card-body">
-                                        <h3 class="card-name">
-                                            Hộp Quà Tết 2021 (Mẫu 1)
-                                        </h3>
-                                        <p class="card-price">
-                                            65,000$ <span> 68,000$</span>
-                                        </p>
-                                        <a href="" class="card__btn">
-                                            Thêm vào giỏ
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card">
-                            <a href="" class="card-link">
-                                <div class="card-content" style="background-image: url(<%= asset_path 'hq4.jpg' %>) ;"> 
-                                    <div class="card-body">
-                                        <h3 class="card-name">
-                                            Hộp Quà Tết 2021 (Mẫu 1)
-                                        </h3>
-                                        <p class="card-price">
-                                            65,000$ <span> 68,000$</span>
-                                        </p>
-                                        <a href="" class="card__btn">
-                                            Thêm vào giỏ
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                                </a>
+                            </div>
+                        </div>            
+                    <% end %>
                 </div>
             </div>
             <div class="grid wide">
@@ -144,82 +122,28 @@
             </div>
             <div class="grid wide">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card">
-                            <a href="" class="card-link">
-                                <div class="card-content" style="background-image: url(<%= asset_path 'tc1.png' %>) ;"> 
-                                    <div class="card-body">
-                                        <h3 class="card-name">
-                                            Giỏ trái cây 1 (Mẫu 1)
-                                        </h3>
-                                        <p class="card-price">
-                                            65,000$ <span> 68,000$</span>
-                                        </p>
-                                        <a href="" class="card__btn">
-                                            Thêm vào giỏ
-                                        </a>
+                    <% @giotraicay.each do |product| %>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card">
+                                <a href="" class="card-link">
+                                    <div class="card-content" > 
+                                    <%= image_tag product.image ,style: "width:100%;" %>
+                                        <div class="card-body">
+                                            <h3 class="card-name">
+                                               <%=  product.name%>
+                                            </h3>
+                                            <p class="card-price">
+                                               <%=  product.price %>  $<span><%=  product.price + 3 %> $</span>
+                                            </p>
+                                            <a href="" class="card__btn">
+                                                Thêm vào giỏ
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card">
-                            <a href="" class="card-link">
-                                <div class="card-content" style="background-image: url(<%= asset_path 'tc2.png' %>) ;"> 
-                                    <div class="card-body">
-                                        <h3 class="card-name">
-                                            Giỏ trái cây 2 (Mẫu 1)
-                                        </h3>
-                                        <p class="card-price">
-                                            65,000$ <span> 68,000$</span>
-                                        </p>
-                                        <a href="" class="card__btn">
-                                            Thêm vào giỏ
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card">
-                            <a href="" class="card-link">
-                                <div class="card-content" style="background-image: url(<%= asset_path 'tc3.png' %>) ;"> 
-                                    <div class="card-body">
-                                        <h3 class="card-name">
-                                            Giỏ trái cây 3 (Mẫu 1)
-                                        </h3>
-                                        <p class="card-price">
-                                            65,000$ <span> 68,000$</span>
-                                        </p>
-                                        <a href="" class="card__btn">
-                                            Thêm vào giỏ
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card">
-                            <a href="" class="card-link">
-                                <div class="card-content" style="background-image: url(<%= asset_path 'tc4.png' %>) ;"> 
-                                    <div class="card-body">
-                                        <h3 class="card-name">
-                                            Giỏ trái cây 4 (Mẫu 1)
-                                        </h3>
-                                        <p class="card-price">
-                                            65,000$ <span> 68,000$</span>
-                                        </p>
-                                        <a href="" class="card__btn">
-                                            Thêm vào giỏ
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                                </a>
+                            </div>
+                        </div>            
+                    <% end %>
                 </div>
             </div>
             <div class="grid wide">
@@ -231,82 +155,28 @@
             </div>
             <div class="grid wide">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card">
-                            <a href="" class="card-link">
-                                <div class="card-content" style="background-image: url(<%= asset_path 'gq4.png' %>) ;"> 
-                                    <div class="card-body">
-                                        <h3 class="card-name">
-                                            Giỏ trái cây 1 (Mẫu 1)
-                                        </h3>
-                                        <p class="card-price">
-                                            65,000$ <span> 68,000$</span>
-                                        </p>
-                                        <a href="" class="card__btn">
-                                            Thêm vào giỏ
-                                        </a>
+                    <% @giotet.each do |product| %>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card">
+                                <a href="" class="card-link">
+                                    <div class="card-content" > 
+                                    <%= image_tag product.image ,style: "width:100%;" %>
+                                        <div class="card-body">
+                                            <h3 class="card-name">
+                                               <%=  product.name%>
+                                            </h3>
+                                            <p class="card-price">
+                                               <%=  product.price %>  $<span><%=  product.price + 3 %> $</span>
+                                            </p>
+                                            <a href="" class="card__btn">
+                                                Thêm vào giỏ
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card">
-                            <a href="" class="card-link">
-                                <div class="card-content" style="background-image: url(<%= asset_path 'gq3.png' %>) ;"> 
-                                    <div class="card-body">
-                                        <h3 class="card-name">
-                                            Giỏ trái cây 2 (Mẫu 1)
-                                        </h3>
-                                        <p class="card-price">
-                                            65,000$ <span> 68,000$</span>
-                                        </p>
-                                        <a href="" class="card__btn">
-                                            Thêm vào giỏ
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card">
-                            <a href="" class="card-link">
-                                <div class="card-content" style="background-image: url(<%= asset_path 'gq2.jpg' %>) ;"> 
-                                    <div class="card-body">
-                                        <h3 class="card-name">
-                                            Giỏ trái cây 3 (Mẫu 1)
-                                        </h3>
-                                        <p class="card-price">
-                                            65,000$ <span> 68,000$</span>
-                                        </p>
-                                        <a href="" class="card__btn">
-                                            Thêm vào giỏ
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card">
-                            <a href="" class="card-link">
-                                <div class="card-content" style="background-image: url(<%= asset_path 'gq1.jpg' %>) ;"> 
-                                    <div class="card-body">
-                                        <h3 class="card-name">
-                                            Giỏ trái cây 4 (Mẫu 1)
-                                        </h3>
-                                        <p class="card-price">
-                                            65,000$ <span> 68,000$</span>
-                                        </p>
-                                        <a href="" class="card__btn">
-                                            Thêm vào giỏ
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                                </a>
+                            </div>
+                        </div>            
+                    <% end %>
                 </div>
             </div>
             <div class="grid wide">

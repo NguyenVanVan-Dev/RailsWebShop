@@ -1,0 +1,61 @@
+<% content_for :content do %>
+   
+                        <h1 class="h3 mb-2 text-gray-800">Tables Product</h1>
+                        <p class="mb-4"> </p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Product</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr class="text-center" >
+                                            <th>Product Name</th>
+                                            <th>Product Slug</th>
+                                            <th>Product Quantity</th>
+                                            <th>Product Display</th>
+                                            <th>Product Price</th>
+                                            <th>Product Status</th>
+                                            <th >Edit </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    
+                                        <% @products .each do |product| %>
+                                         <tr class="text-center" >
+                                            <td><%= product.name %></td>
+                                            <td><%= product.slug %></td>
+                                            <td><%= product.quantity %></td>
+                                            <td><%= product.display %></td>
+                                            <td><%= product.price %></td>    
+                                            <td>
+                                               <% if( product.status == 2)
+                                               
+                                               %>
+                                                 Show
+                                               <% else %>
+                                               Hidden
+                                               <% end %>
+                                            </td>   
+                                            <td>
+                                                <div class="form-group ">
+                                                    <%= link_to "Deatis", product_url(product.id) ,class: 'btn btn-info btn-block' %>
+                                                    
+                                                </div>
+                                            </td>
+                                         
+                                        </tr>
+                                        <% end %>
+                                       
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+<%end %>

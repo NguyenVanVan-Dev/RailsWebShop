@@ -24,12 +24,44 @@
                             <li class="header__list-item hidden-on-tablet">
                                 <a href="" class="header__item-link">Thanh Toán</a>
                             </li>
-                            <li class="header__list-item">
-                                <%= link_to "Đăng Kí", new_register_user_path,class:"header__item-link " %>
-                            </li>
-                            <li class="header__list-item">
-                                <a href="" class="header__item-link">Đăng Nhập</a>
-                            </li>
+                            <%
+                                if ( session[:user_name])
+                            %>
+                                <li class="header__list-item profile__user">
+                                    <a href="" class="header__item-link "> Xin Chào! <%= session[:user_name] %></a>
+                                    <div class="profile-content">
+                                        <ul class="profile__list">
+                                            <li class="profile__item">
+                                                <a href="" class="profile__link">
+                                                    Hồ Sơ <i class="fas fa-id-card-alt"></i>
+                                                </a>
+                                            </li>
+                                            <li class="profile__item">
+                                            
+                                             <%= link_to  logout_user_path,method: :delete , class:'profile__link' do %> 
+                                                Đăng Xuất  <i class="fas fa-sign-out-alt"></i>
+                                             <% end %>  
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </li>
+                            <%
+                                else  
+                            %>
+                                    <li class="header__list-item">
+                                        <%= link_to "Đăng Kí", new_register_user_path,class:"header__item-link " %>
+                                    </li>
+                                    <li class="header__list-item">
+                                        <a href="" class="header__item-link">Đăng Nhập</a>
+                                    </li>
+                            <%
+                                end 
+                            %>
+
+
+
+                            
                         </ul>
                     </nav>
                    
@@ -68,10 +100,11 @@
                     </div>
                 </div>
                 <div class="header__menu ">
+                    
                     <ul class="header__list-bottom  ">
-                        <% @category.each do |category| %>
+                        <% @home.each do |home| %>
                             <li class="header__item-bottom hidden-on-mobile hidden-on-tablet " >
-                                 <%= link_to category.category_name, category ,class:"header__item-link " %>
+                                 <%= link_to home.name, home_path(home.id) ,class:"header__item-link " %>
                             </li>
                         <% end %>
                     </ul>
@@ -81,9 +114,9 @@
                             <%= link_to "All Menu", root_path ,class:"header__item-link hidden-on-pc "%>
                             <ul class=" dropdown-mobi-tablet">
                                 
-                                <% @category.each do |category| %>
+                                <% @home.each do |category| %>
                                     <li class="header__dropdown-item" >
-                                        <%= link_to category.category_name, "/ruby-book" ,class:"header__drowdown-link  " %>
+                                        <%= link_to category.name, "/ruby-book" ,class:"header__drowdown-link  " %>
                                     </li>
                                 <% end %>
 

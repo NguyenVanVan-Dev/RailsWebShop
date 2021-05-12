@@ -1,0 +1,57 @@
+
+<% content_for :content do %>
+  <header class="panel-heading">
+    <center> <h1>Edit Category </h1></center> 
+       <% if flash[:success] %>
+          <div class="alert alert-success" role="alert">
+                  <%= flash[:success] %>
+          </div>
+      <% end %>
+      <% if flash[:danger] %>
+          <div class="alert alert-danger" role="alert">
+                  <%= flash[:danger] %>
+          </div>
+      <% end %>
+  </header>
+             
+  <%= form_with url: category_path, html: {class: "user"} , method: :patch do |f| %>                   
+    <div class="form-row" >
+        <div class="form-group col-md-12">
+         <%= f.label :name, "Name Category:" %> 
+         <%= f.text_field :name ,class:"form-control form-control-user text-warning",placeholder:"Name Category", value: @category.name %>
+         <% @category.errors.full_messages_for(:name).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+        </div>
+        <div class="form-group col-md-12">
+          <%= f.label :slug, "Status Category:" %> 
+          <%= f.text_field :slug ,class:"form-control form-control-user text-warning",placeholder:"Status Category" , value: @category.slug%>
+          <% @category.errors.full_messages_for(:slug).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+        </div>
+        <div class="form-group col-md-6">
+            <%= f.label :parent, "Category Parent:" %>
+            <%=f.collection_select :parent, Categoryproduct.order(:name), :id, :name, {}, {class: "custom-select text-warning"} %> 
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.label :status, "Hidden/ Show:" %>
+          <%= select_tag(:status, options_for_select([["Hidden",1],["Show ",2]] ), class:"custom-select text-warning") %>
+        </div>
+        <div class="form-group col-md-12">
+          <%= f.label :desc, "Description:" %>
+         
+          <%= f.text_area :desc, size: "70x10" ,class:"form-control text-warning" , value: @category.desc %>
+          <% @category.errors.full_messages_for(:desc).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+        </div>
+        <hr>
+        <div class="form-group col-md-2">
+            <input type="submit" class="btn btn-warning  btn-block" id="" value="Edit category">
+        </div>
+        
+        
+    </div>
+ <% end %>
+<% end %>

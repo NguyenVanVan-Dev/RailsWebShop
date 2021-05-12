@@ -1,0 +1,47 @@
+
+<% content_for :content do %>
+  <header class="panel-heading">
+    <center> <h1>Add Slider </h1></center> 
+       <% if flash[:success] %>
+          <div class="alert alert-success" role="alert">
+                  <%= flash[:success] %>
+          </div>
+      <% end %>
+      <% if flash[:danger] %>
+          <div class="alert alert-danger" role="alert">
+                  <%= flash[:danger] %>
+          </div>
+      <% end %>
+  </header>
+             
+  <%= form_with model: @slide , html: {class: "user"}  do |f| %>                   
+    <div class="form-row">
+        <div class="form-group col-md-6">
+         <%= f.label :name, "Name Product:" %> 
+         <%= f.text_field :name ,class:"form-control form-control-user",placeholder:"Name Slider" %>
+            <% @slide.errors.full_messages_for(:name).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.label :title, "Status Product:" %> 
+          <%= f.text_field :title ,class:"form-control form-control-user",placeholder:" Title Slider" %>
+            <% @slide.errors.full_messages_for(:title).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+        <div class="form-group col-md-6">
+            <%= f.label :image, "Product Price:" %>
+            <%= f.file_field  :image,class:"form-control" %>
+          
+        </div>
+        
+        <hr>
+        <div class="form-group col-md-2">
+            <input type="submit" class="btn btn-success  btn-block" id="" value="Add Slider">
+        </div>
+        
+        
+    </div>
+    <% end %>
+<% end %>

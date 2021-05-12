@@ -1,0 +1,70 @@
+<% content_for :content do %>
+  <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Details Product "<%= @product.name %>"  </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="form-group col-md-12  text-center ">
+                                 <h6 class="m-0 font-weight-bold text-primary">Image  "<%= @product.name %>" </h6>
+                                 <%= image_tag @product.image ,class:"text-center" , style:"width:200px;" %>
+                                </div>
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th> Name</th>
+                                            <th> Slug</th>
+                                            <th>Quantity</th>
+                                            <th> Status</th>
+                                            <th> Display</th>
+                                          
+                                            
+                                            <th> Price</th>
+                                            <th>Time Add Product</th>
+                                             <th>Time update Product</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    
+                                        
+                                         <tr class="text-center">
+                                            <td><%= @product.name %></td>
+                                            <td><%= @product.slug %></td>
+                                            <td><%= @product.quantity %></td>
+                                            <td>
+                                               <% if( @product.status == 2)
+                                               
+                                               %>
+                                                 Show
+                                               <% else %>
+                                               Hidden
+                                               <% end %>
+                                            </td>
+                                            <td><%= @product.display%></td>
+                                           
+                                            <td><%= @product.price %></td>  
+                                            <td><%= @product.created_at %></td> 
+                                            <td><%= @product.updated_at %></td>   
+                                            
+                                        </tr>
+                                        
+                                       
+                                       
+                                    </tbody>
+                                </table>
+                                 <div class="form-group col-md-3">
+                                    <%= link_to "Edit Product", edit_product_path(@product) ,class: "btn btn-warning  btn-block"%>
+                                    
+                                </div>
+                                 <div class="form-group col-md-3">
+                                   <%= link_to "Delete", product_path(@product) , method: :delete , class: 'btn btn-danger btn-block' %>
+                                </div>
+                            
+                            
+                                                                      
+                            </div>
+                        </div>
+                    </div>
+
+<%end %>

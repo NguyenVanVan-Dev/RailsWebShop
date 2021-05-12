@@ -1,9 +1,7 @@
 <% content_for :content do %>
    
-                      <h1 class="h3 mb-2 text-gray-800">Tables Category</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
+                        <h1 class="h3 mb-2 text-gray-800">Tables Category</h1>
+                        <p class="mb-4"> </p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -14,26 +12,32 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-center" >
                                             <th>Category Name</th>
                                             <th>Category Slug</th>
                                             <th>Category Parent</th>
                                             <th>Category Status</th>
                                             <th>Category Description</th>
-                                            
+                                            <th >Edit </th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                     
-                                        <% @category .each do |category| %>
-                                         <tr>
-                                            <td><%= category.category_name %></td>
-                                            <td><%= category.category_slug %></td>
-                                            <td><%= category.category_parent %></td>
-                                            <td><%= category.category_status %></td>
-                                            <td><%= category.category_desc %></td>    
-                                            
+                                        <% @categorys .each do |category| %>
+                                         <tr class="text-center" >
+                                            <td><%= category.name %></td>
+                                            <td><%= category.slug %></td>
+                                            <td><%= category.parent %></td>
+                                            <td><%= category.status %></td>
+                                            <td><%= category.desc %></td>    
+                                            <td>
+                                                <div class="form-group ">
+                                                    <%= link_to "Deatis", category_url(category.id) ,class: 'btn btn-info btn-block' %>
+                                                    
+                                                </div>
+                                            </td>
+                                         
                                         </tr>
                                         <% end %>
                                        

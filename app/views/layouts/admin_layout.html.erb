@@ -72,10 +72,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
                         <a class="collapse-item" href="cards.html">Cards</a>
-                        <a class="collapse-item" href="cards.html">Header</a>
-                        <a class="collapse-item" href="cards.html">Slider</a>
+                    
+                        <%= link_to "Slider", slides_path,class:"collapse-item " %>
                         <a class="collapse-item" href="cards.html">Content</a>
                         <a class="collapse-item" href="cards.html">Footer</a>
                     </div>
@@ -139,8 +138,11 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         
                         <h6 class="collapse-header">Manage Category:</h6>
-                            <%= link_to "List Category", showcategory_path,class:"collapse-item " %>
-                            <%= link_to "Add Category", newcategory_path,class:"collapse-item " %>
+                       
+                        <%= link_to "Add Category", new_category_path,class:"collapse-item " %>
+                        <%= link_to "List Category", categorys_path ,class:"collapse-item " %>
+                            
+                            
                     </div>
                 </div>
             </li>
@@ -154,8 +156,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         
                         <h6 class="collapse-header">Manage Product:</h6>
-                          <a class="collapse-item" href="login.html">List Product</a>
-                        <a class="collapse-item" href="register.html">Add Product</a>
+                        
+                        <%= link_to "Add Product", new_product_path,class:"collapse-item " %>
+                        <%= link_to "List Product", products_path ,class:"collapse-item " %>
                     </div>
                 </div>
             </li>
@@ -367,10 +370,11 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            
+                                <%= link_to admin_url, method: :Delete ,class:'dropdown-item' do %>
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
-                                </a>
+                                <%end %>
                             </div>
                         </li>
 
